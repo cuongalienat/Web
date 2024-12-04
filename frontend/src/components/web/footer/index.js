@@ -12,9 +12,19 @@ const Footer = () => {
     console.log("Email:", email, "Message:", message);
   };
 
+  // Hàm cuộn trang lên đầu khi nhấn vào nút
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="container footer-content px-5">
-      <button id="myBtn" title="Go to top" style={{ display: "block" }}>
+      <button
+        id="myBtn"
+        title="Go to top"
+        style={{ display: "block" }}
+        onClick={scrollToTop} // Gọi hàm khi nhấn nút
+      >
         <i className="fa-solid fa-arrow-up"></i>
       </button>
       <div className="row my-3 py-4 justify-content-between">
@@ -87,52 +97,6 @@ const Footer = () => {
               Blog
             </Link>
           </div>
-        </div>
-
-        {/* Cột Message */}
-        <div className="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-          <h5 className="pt-3">Message</h5>
-          <div className="is-divider small"></div>
-          <p>
-            Leave your email to receive new decoration ideas and information, offers from <b>HOME's</b>
-          </p>
-          <form className="py-1 send-letter" onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label style={{ color: "#ffffff" }} className="form-label">
-                Email:
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="name@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label style={{ color: "#ffffff" }} className="form-label">
-                Message:
-              </label>
-              <textarea
-                className="form-control"
-                rows="3"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </form>
-
-          {/* Marker Thành Công */}
-          {isSubmitted && (
-            <div className="alert alert-success mt-3" role="alert">
-             Submitted successfully! Thank you for submitting the information.
-            </div>
-          )}
         </div>
       </div>
     </div>

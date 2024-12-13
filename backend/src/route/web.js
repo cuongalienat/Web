@@ -108,8 +108,6 @@ let initWebRoutes = (app) => {
   router.post('/api/add-order', orderController.handleAddOrder);
   router.put('/api/update-order', orderController.handleUpdateStatus);
 
-  // router.put('/api/update-address',addressController.handleUpdateAddress);
-
   router.get('/api/get-all-blogs', blogController.handleGetAllBlogs);
   router.post('/api/create-new-blog', upload.single('photo'), blogController.handleCreateBlog);
   router.put('/api/update-blog', upload.single('photo'), blogController.handleUpdateBlog);

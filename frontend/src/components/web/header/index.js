@@ -10,20 +10,20 @@ import { getUserByEmail, isAuthenticate, logout } from '../../services/userServi
 import { useEffect, useState } from 'react';
 import { getCartByUserId } from '../../services/cartService';
 
-const Header =()=> {
+const Header = () => {
   const [token, setToken] = useState('');
   const [username, setUsername] = useState('');
   const [userId, setUserId] = useState('');
   const [qtyCart, setQtyCart] = useState(0);
   const [search, setSearch] = useState('');
-  
+
   const location = useLocation();
   const navigate = useNavigate(); // Dùng useNavigate thay cho useHistory
-  
+
   useEffect(() => {
     getUser();
   }, []);
-  
+
   const getUser = async () => {
     let cookies = await isAuthenticate();
     setToken(cookies);
@@ -64,7 +64,7 @@ const Header =()=> {
   };
 
   return (
-    <div className="header">        
+    <div className="header">
       <Navbar key="lg" expand="lg" className="header-nav">
         <div className="container-fluid px-5">
           <Navbar.Brand href="/" className="logo">HOME's</Navbar.Brand>
@@ -81,10 +81,10 @@ const Header =()=> {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-center flex-grow-1 py-3">
-                <NavLink className={(navData) => navData.isActive ? "active" : "first after" } to="" end>HOME</NavLink>
-                <NavLink className={(navData) => navData.isActive ? "active" : "first after" } to="about">ABOUT</NavLink>
-                <NavLink className={(navData) => navData.isActive ? "active" : "first after" } to="product">PRODUCT</NavLink>
-                <NavLink className={(navData) => navData.isActive ? "active" : "first after" } to="blog">BLOG</NavLink>
+                <NavLink className={(navData) => navData.isActive ? "active" : "first after"} to="" end>HOME</NavLink>
+                <NavLink className={(navData) => navData.isActive ? "active" : "first after"} to="about">ABOUT</NavLink>
+                <NavLink className={(navData) => navData.isActive ? "active" : "first after"} to="product">PRODUCT</NavLink>
+                <NavLink className={(navData) => navData.isActive ? "active" : "first after"} to="blog">BLOG</NavLink>
               </Nav>
               <div className="d-flex">
                 <div className="header-search pe-4">
@@ -108,11 +108,11 @@ const Header =()=> {
                     ) : (
                       <Button><i className="fa-solid fa-magnifying-glass"></i></Button>
                     )}
-                  </Form> 
+                  </Form>
                 </div>
                 <div className="header-auth d-flex align-items-center">
                   <span style={token ? { display: 'none' } : { display: 'block' }}>
-                    <Link to="register" className="sign-up d-flex align-items-center">
+                    <Link to="login" className="sign-up d-flex align-items-center">
                       <i className="fa-regular fa-user px-1" style={{ fontSize: "21px", color: "#e74c3c" }}></i>
                       <span className="pb-3 px-0">
                         <span style={{ color: "#888888", fontSize: "10px" }}>Register</span>
@@ -128,11 +128,11 @@ const Header =()=> {
                       <Link to="account" className="dropdown-item"><i className="fa-regular fa-user pe-2"></i> Account</Link>
                       <Link to="account/address" className="dropdown-item"><i className="fa-regular fa-address-book pe-2"></i> My address</Link>
                       <Dropdown.Item href="#/action-3" onClick={handleLogout}><i className="fa-solid fa-arrow-right-from-bracket pe-2"></i> Log out</Dropdown.Item>
-                    </Dropdown.Menu>    
+                    </Dropdown.Menu>
                   </Dropdown>
                   <Link to="cart" className="header-cart pb-1">
                     <svg style={{ color: "#e74c3c" }} xmlns="http://www.w3.org/2000/svg" width="26" height="20" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
-                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                     </svg>
                     <span className="number">{qtyCart}</span>
                   </Link>

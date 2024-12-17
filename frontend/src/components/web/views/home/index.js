@@ -49,7 +49,14 @@ const Home = () => {
                                 </div>
                                 <div className="product-title">
                                     <Link to={`/product/detail/${item.slug}/${item.id}`}>{item.name}</Link>
-                                    <p>{new Intl.NumberFormat().format(item.price)}đ <del className="card-price-old">{item.discount ? item.discount + 'đ' : ''}</del></p>
+                                    <p>
+                                        {new Intl.NumberFormat().format(item.discount)}đ
+                                        {item.price && item.discount !== item.price ? (
+                                            <del className="card-price-old">
+                                                {item.price + 'đ'}
+                                            </del>
+                                        ) : null}
+                                    </p>
                                 </div>
                             </div>
                         )
@@ -108,7 +115,14 @@ const Home = () => {
                                 </div>
                                 <div className="product-title">
                                     <Link to={`/product/detail/${item.slug}/${item.id}`}>{item.name}</Link>
-                                    <p>{new Intl.NumberFormat().format(item.price)}đ <del className="card-price-old">{item.discount ? item.discount + 'đ' : ''}</del></p>
+                                    <p>
+                                        {new Intl.NumberFormat().format(item.discount)}đ
+                                        {item.price && item.discount !== item.price ? (
+                                            <del className="card-price-old">
+                                                {item.price + 'đ'}
+                                            </del>
+                                        ) : null}
+                                    </p>
                                 </div>
                             </div>
                         )

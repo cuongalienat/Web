@@ -115,7 +115,7 @@ const Header = () => {
                     <Link to="login" className="sign-up d-flex align-items-center">
                       <i className="fa-regular fa-user px-1" style={{ fontSize: "21px", color: "#e74c3c" }}></i>
                       <span className="pb-3 px-0">
-                        <span style={{ color: "#888888", fontSize: "10px" }}>Register</span>
+                        <span style={{ color: "#888888", fontSize: "10px" }}>Login</span>
                         <p style={{ fontSize: "14px", margin: "0px", fontWeight: "500", lineHeight: "10px", color: "#e74c3c" }}>Account</p>
                       </span>
                     </Link>

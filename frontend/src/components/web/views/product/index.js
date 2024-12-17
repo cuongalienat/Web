@@ -1,25 +1,25 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getAllProducts } from "../../../services/productService";
-import {IMG_URL} from '../../../config/imgUrl';
+import { IMG_URL } from '../../../config/imgUrl';
 import { ThreeDots } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import ProductPhoto from "./ProductPhoto";
 import Pagination from "../../../pagination";
 // import { getAllCategories } from "../../../services/categoryService";
 
-const Product= ()=>{
-    const [arrProducts,setArrProducts]=useState([]);
+const Product = () => {
+    const [arrProducts, setArrProducts] = useState([]);
     // const [color,setColor]=useState([]);
     // const [arrCategory,setArrCategory]=useState([]);
 
     // const [searchInput, setSearchInput] = useState('');
     // const [keyword,setKeyword]=useState('');
     // const [pagProduct,setPagProduct]=useState([]);
-    const [isloaded,setIsLoaded]=useState(false);
+    const [isloaded, setIsLoaded] = useState(false);
     const [offset, setOffset] = useState(0);
-    const [perPage]=useState(20);
-    const [currentPage,setCurrentPage]=useState(0);
-    const [pageCount,setPageCount]=useState(0);
+    const [perPage] = useState(20);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
 
     // useEffect(()=>{
     //     const getAllCategoriesFromReact = async()=>{
@@ -33,7 +33,7 @@ const Product= ()=>{
     // useEffect(()=>{
     //     const getAllColorsFromReact = async()=>{
     //         let data = await getAllColors('ALL');
-            
+
     //         if(data && data.data.errCode === 0){
     //             setColor(data.data.colors);
     //         }
@@ -41,15 +41,15 @@ const Product= ()=>{
     //     getAllColorsFromReact();
     // },[])
 
-    useEffect(()=>{
+    useEffect(() => {
         getAllProductsFromReact();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[perPage,offset]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [perPage, offset]);
 
-    const getAllProductsFromReact = async()=>{
+    const getAllProductsFromReact = async () => {
         setIsLoaded(false);
         const response = await getAllProducts('ALL');
-        if(response && response.data.errCode === 0){
+        if (response && response.data.errCode === 0) {
             var tdata = response.data.products;
             var slice = tdata.slice(offset, offset + perPage)
             setPageCount(Math.ceil(tdata.length / perPage));
@@ -83,37 +83,37 @@ const Product= ()=>{
     //     setIsShowSort(!isShowSort);
     // }
     const compare = (a, b, ascendingOrder) => {
-       
+
         if (a < b) {
-          return ascendingOrder ? -1 : 1;
+            return ascendingOrder ? -1 : 1;
         }
         if (a > b) {
-          return ascendingOrder ? 1 : -1;
+            return ascendingOrder ? 1 : -1;
         }
         return 0;
-      }
-      
-      const handleChange = (value) => {
-        if(value === 'none'){
+    }
+
+    const handleChange = (value) => {
+        if (value === 'none') {
             setArrProducts([...arrProducts])
         } else {
-          let toType, toAscending
-          switch(value){
-            case 'ascending' : toType = true; toAscending = true; break;
-            case 'descending' : toType = true; toAscending = false; break;
-            case 'high' : toType = false; toAscending = true; break;
-            case 'low' : toType = false; toAscending = false; break;
-            default:
-          }
-          let current = [...arrProducts]
-          current.sort((a, b) => toType ?
-                 compare(a.name, b.name, toAscending) 
-                 : 
-                 compare(a.price, b.price, toAscending))
-          setArrProducts([...current])
+            let toType, toAscending
+            switch (value) {
+                case 'ascending': toType = true; toAscending = true; break;
+                case 'descending': toType = true; toAscending = false; break;
+                case 'high': toType = false; toAscending = true; break;
+                case 'low': toType = false; toAscending = false; break;
+                default:
+            }
+            let current = [...arrProducts]
+            current.sort((a, b) => toType ?
+                compare(a.name, b.name, toAscending)
+                :
+                compare(a.price, b.price, toAscending))
+            setArrProducts([...current])
         }
-      }
-    return(
+    }
+    return (
         <div className="products-content">
             <div className="breadcrumb_background_sp">
                 <h1 className="title_bg">Product</h1>
@@ -206,38 +206,45 @@ const Product= ()=>{
                         </div>
                     </div>
                     <div className="row justify-content-between py-4">
-                        {isloaded ? arrProducts && arrProducts.map((product)=>{
-                        
+                        {isloaded ? arrProducts && arrProducts.map((product) => {
+
                             return product.hidden === 0 && (
                                 <div className="col-lg-2 col-ms-4 col-sm-6 col-6" key={product.id}>
                                     <div className="product-img">
-                                    {product.discountPer ? 
-                                        <div className="sale">
-                                            <span>{product.discountPer + '%'}</span>
-                                        </div>
-                                        : ''}
-                                        <Link to={`detail/${product.slug}/${product.id}`}  className="change">
-                                            <img src={`${IMG_URL}/${product.photo}`} alt={product.name} className="img-fluid"/>
+                                        {product.discountPer ?
+                                            <div className="sale">
+                                                <span>{product.discountPer + '%'}</span>
+                                            </div>
+                                            : ''}
+                                        <Link to={`detail/${product.slug}/${product.id}`} className="change">
+                                            <img src={`${IMG_URL}/${product.photo}`} alt={product.name} className="img-fluid" />
                                             <ProductPhoto productId={product.id} IMG_URL={IMG_URL} />
                                         </Link>
                                     </div>
                                     <div className="product-title">
                                         <Link to={`detail/${product.slug}/${product.id}`}>{product.name}</Link>
-                                        <p>{new Intl.NumberFormat().format(product.price)}đ <del className="card-price-old">{product.discount ? product.discount+'đ' : ''}</del></p>
+                                        <p>
+                                            {new Intl.NumberFormat().format(product.discount)}đ
+                                            {product.price && product.discount !== product.price ? (
+                                                <del className="card-price-old">
+                                                    {product.price + 'đ'}
+                                                </del>
+                                            ) : null}
+                                        </p>
                                     </div>
                                 </div>
                             )
                         })
-                        :
-                        <ThreeDots 
-                            height="60" 
-                            width="60" 
-                            radius="9"
-                            color="#FF6600" 
-                            ariaLabel="three-dots-loading"
-                            wrapperStyle={{}}
-                            wrapperClassName=""
-                            visible={true}
+                            :
+                            <ThreeDots
+                                height="60"
+                                width="60"
+                                radius="9"
+                                color="#FF6600"
+                                ariaLabel="three-dots-loading"
+                                wrapperStyle={{}}
+                                wrapperClassName=""
+                                visible={true}
                             />
                         }
                     </div>
@@ -246,10 +253,10 @@ const Product= ()=>{
                     }
                 </div>
             </div>
-            
+
             {/* <PaginatedItems limit={4} /> */}
         </div>
-        
+
     )
 }
 export default Product;

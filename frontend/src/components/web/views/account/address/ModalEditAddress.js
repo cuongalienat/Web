@@ -151,7 +151,7 @@ const ModalEditAddress = (props) => {
                                     :
                                     ''
                                 }
-                                <div className="text-muted mt-1" style={{ fontSize: "13px" }}>Keep 9-digit format with no spaces and dashes</div>
+                                <div className="text-muted mt-1" style={{ fontSize: "13px" }}>Keep 10-digit format with no spaces and dashes</div>
                             </div>
                             <ToastContainer />
                             <p>*<b>City:</b> {props.currentAddress.city}<br /> *<b>District:</b> {props.currentAddress.district}<br /> *<b>Ward:</b> {props.currentAddress.ward}</p>

@@ -160,7 +160,7 @@ const Profile = () => {
                             // className="form-control"
                             className={"form-control " + (showSave ? ((getUser.formErrors.phoneNumber.length > 0 && getUser.phoneNumber !== '') || (empty === true) ? 'focusError' : '') : '')}
                         />
-                        {showSave && <div className="text-muted mt-1" style={{ fontSize: "13px" }}>Keep 9-digit format with no spaces and dashes</div>}
+                        {showSave && <div className="text-muted mt-1" style={{ fontSize: "13px" }}>Keep 10-digit format with no spaces and dashes</div>}
 
                         {getUser.formErrors.phoneNumber.length > 0 && getUser.phoneNumber !== '' ?
                             <p className="text-danger my-1"><i class="fa-solid fa-circle-exclamation"></i> {getUser.formErrors.phoneNumber}</p>

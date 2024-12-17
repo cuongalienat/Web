@@ -68,6 +68,7 @@ const ModalAddress = (props) => {
             props.createNewAddress(data);
             setEmpty(false);
             setArrInput({});
+            window.location.reload();
         } else {
             setEmpty(true)
             toast.error('Input empty!', {

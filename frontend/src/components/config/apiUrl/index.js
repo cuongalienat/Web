@@ -1,5 +1,2 @@
-export const API_URL =
-        document.domain === 'localhost'
-        ? "http://localhost:8081"
-        : "production";
+export const API_URL = "https://web-btl-2024-1.onrender.com"
 

@@ -5,7 +5,8 @@
 **HOME's - Furniture Sales Website** là nền tảng thương mại điện tử chuyên cung cấp các sản phẩm nội thất hiện đại, chất lượng cao cho mọi không gian sống và làm việc. Website giúp khách hàng dễ dàng lựa chọn, mua sắm và quản lý đơn hàng một cách nhanh chóng và tiện lợi.
 
 ---
-
+## Link website: https://web-h2cz.vercel.app
+---
 ## Tài khoản phục vụ TEST và CHẤM ĐIỂM
 - **Tài khoản ADMIN**:
  Email: admin@gmail.com |

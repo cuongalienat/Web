@@ -34,7 +34,7 @@ const Home = () => {
                 </div>
                 <div className="row justify-content-center">
                     {product && product.map((item, index) => {
-                        return item.hidden === 0 && item.newArrival === 1 && index < 8 && (
+                        return item.hidden === false && item.newArrival === true && index < 8 && (
                             <div className="col-lg-3 col-ms-6 col-sm-6 col-6" key={item.id}>
                                 <div className="product-img">
                                     {item.discountPer ?
@@ -100,7 +100,7 @@ const Home = () => {
                 </div>
                 <div className="row justify-content-center">
                     {product && product.map((item, index) => {
-                        return item.hidden === 0 && item.discountPer && index < 8 ? (
+                        return item.hidden === false && item.discountPer && index < 8 ? (
                             <div className="col-lg-3 col-ms-6 col-sm-6 col-6" key={item.id}>
                                 <div className="product-img">
                                     {item.discountPer ?
@@ -125,7 +125,7 @@ const Home = () => {
                                     </p>
                                 </div>
                             </div>
-                        )
+                        )``
                             :
                             (
                                 ''

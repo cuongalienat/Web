@@ -5,7 +5,8 @@
 **HOME's - Furniture Sales Website** là nền tảng thương mại điện tử chuyên cung cấp các sản phẩm nội thất hiện đại, chất lượng cao cho mọi không gian sống và làm việc. Website giúp khách hàng dễ dàng lựa chọn, mua sắm và quản lý đơn hàng một cách nhanh chóng và tiện lợi.
 
 ---
-
+## Link website: https://web-h2cz.vercel.app
+---
 ## Tài khoản phục vụ TEST và CHẤM ĐIỂM
 - **Tài khoản ADMIN**:
  Email: admin@gmail.com |
@@ -15,6 +16,8 @@
 ---
 
 ## Thiết kế cơ sở dữ liệu
+![db](https://github.com/user-attachments/assets/31d2eac0-19ae-4a76-a2ce-08ec0170acc5)
+
 
 ---
 
@@ -52,27 +55,17 @@
 
 ## Công nghệ sử dụng
 
-- **Backend**: Node.js
+- **Backend**: Node.js, Express.js
 - **Frontend**: React.js
 - **Database**: MySQL
-- **Khác**:
+- **Khác**: Vercel, Render
   
 ---
 
-## Hướng dẫn cài đặt
-
----
-
-## Cấu trúc thư mục
-
----
-
-## Các Route chính
-
----
-
-## Phân chia công việc
-
+## Thành viên
+- Nguyễn Lê Việt Cường
+- Nguyễn Thành Đạt
+- Nguyễn Thời Trí
 ---
 
 ## Video demo
@@ -81,6 +74,3 @@
 
 ## Video hướng dẫn test
 
----
-
-## Giấy phép

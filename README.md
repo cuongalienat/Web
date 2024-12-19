@@ -70,7 +70,7 @@
 ---
 
 ## Video demo
-[Nhấn vào đây để xem](https://drive.google.com/file/d/1PMspMIIW4OHS78N6GArH_S_5jSfqfcQ4/view?usp=sharing)
+[Nhấn vào đây để xem](https://youtu.be/V-UGYcSOMAE)
 ---
 
 

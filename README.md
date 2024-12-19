@@ -6,6 +6,7 @@
 
 ---
 ## Link website: https://web-h2cz.vercel.app
+(Thầy có thể sẽ phải đợi tầm 1-2 phút để backend có thể kết nối đến database ạ)
 ---
 ## Tài khoản phục vụ TEST và CHẤM ĐIỂM
 - **Tài khoản ADMIN**:
@@ -69,8 +70,7 @@
 ---
 
 ## Video demo
-
+[Nhấn vào đây để xem](https://drive.google.com/file/d/1PMspMIIW4OHS78N6GArH_S_5jSfqfcQ4/view?usp=sharing)
 ---
 
-## Video hướng dẫn test
 
